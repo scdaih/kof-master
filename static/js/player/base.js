@@ -150,17 +150,18 @@ export class Player extends acgameobject {//继承游戏对象
         }, 800);
         // this.$hp.width(this.$hp.parent().width() * this.hp / 100); //改变血量
 
-        if (this.hp <= 0) {
-            this.status = 6;
-            this.frame_current_cnt = 0;
-            this.vx = 0//死亡后速度清0
-        }
+
         if (this.direction > 0) {//击退和击飞
             this.vx -= 100;
             this.vy -= 300;
         } else {
             this.vx += 100;
             this.vy -= 300;
+        }
+        if (this.hp <= 0) {
+            this.status = 6;
+            this.frame_current_cnt = 0;
+            this.vx = 0//死亡后速度清0
         }
     }
     is_collision(r1, r2) {//判断两个矩形有没有交集
